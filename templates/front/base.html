@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/static/img/kit/free/apple-icon.png">
+    <link rel="icon" href="/static/img/kit/free/favicon.png">
+    <title>
+        Penerimaan pegawai
+    </title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/static/css/material-kit.css?v=2.0.2">
+    <!-- iframe removal -->
+</head>
+
+<body class="index-page ">
+<nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100"
+     id="sectionsNav">
+    <div class="container">
+        <div class="navbar-translate">
+            <a class="navbar-brand" href="/">Home </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <!-- todo menu login and non login -->
+                <li class="nav-item">
+                    <!-- todo username -->
+                    faisal | 
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/timeline">Timeline</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="page-header header-filter clear-filter purple-filter" data-parallax="true">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Penerimaan pegawai</h1>
+                <h3>Rumah sakit sarjito, tahun 2018</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main main-raised">
+    <div class="section section-basic">
+        <div class="container">
+            {{ template "content" . }}
+        </div>
+    </div>
+</div>
+<footer class="footer ">
+    <div class="container">
+        <div class="copyright pull-right">
+            &copy;
+            <script>
+                    document.write(new Date().getFullYear())
+
+
+
+
+
+            </script>
+            Faisal Burhanudin, 15122043
+        </div>
+    </div>
+</footer>
+<!--   Core JS Files   -->
+<script src="/static/js/core/jquery.min.js"></script>
+<script src="/static/js/core/popper.min.js"></script>
+<script src="/static/js/bootstrap-material-design.js"></script>
+<!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
+<script src="/static/js/plugins/moment.min.js"></script>
+<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+<script src="/static/js/plugins/bootstrap-datetimepicker.min.js"></script>
+<!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="/static/js/plugins/nouislider.min.js"></script>
+<!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
+<script src="/static/js/material-kit.js?v=2.0.2"></script>
+<script>
+        $(document).ready(function() {
+
+            //init DateTimePickers
+            materialKit.initFormExtendedDatetimepickers();
+
+            // Sliders Init
+            materialKit.initSliders();
+        });
+
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+{{define "content"}}
+<h2>Form registrasi</h2>
+<form action="/register/" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="username" class="bmd-label-floating">Username</label>
+        <input name="username" type="text" class="form-control" id="username">
+    </div>
+    <div class="form-group">
+        <label for="firstName" class="bmd-label-floating">Nama depan</label>
+        <input name="first_name" type="text" class="form-control" id="firstName">
+    </div>
+    <div class="form-group">
+        <label for="lastName" class="bmd-label-floating">Nama Belakang</label>
+        <input name="last_name" type="text" class="form-control" id="lastName">
+    </div>
+    <div class="form-group">
+        <label for="emailAddress">Alamat Email</label>
+        <input name="email" type="email" class="form-control" id="emailAddress">
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input name="password" type="password" class="form-control" id="password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{{end}}

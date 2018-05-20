@@ -1,0 +1,50 @@
+{{ define "content"}}
+<h2>Timeline</h2>
+<hr>
+<h3>Registrasi</h3>
+<p>
+    Paling lambat 27 Februari 2018 <i class="material-icons">done</i>
+</p>
+<h3>Dokumen Syarat</h3>
+<p>
+<form action="/document/" method="post" enctype="multipart/form-data">
+    <a href="ijazah.document.url">ijazah</a>
+    <div class="form-group">
+        <label for="ijazah">Ijazah Terakhir</label>
+        <input name="ijazah" type="file" class="form-control" id="ijazah">
+    </div>
+    <a href="lamaran.document.url">lamaran</a>
+    <div class="form-group">
+        <label for="lamaran">Surat Lamaran</label>
+        <input name="lamaran" type="file" class="form-control" id="lamaran">
+    </div>
+    <a href="pendukung.document.url">pendukung</a>
+    <div class="form-group">
+        <label for="pendukung">Dokumen pendukung</label>
+        <input name="pendukung" type="file" class="form-control" id="pendukung">
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>
+</p>
+<h3>Tes Tertulis</h3>
+<p>
+    Akan dilaksanakan pada tanggal 28 Februari 2018
+    <i class="material-icons">done</i>
+</p>
+<h3>Tes Wawancara</h3>
+<p>
+    Akan dilaksanakan pada tanggal 1 Maret 2018
+    <i class="material-icons">done</i>
+</p>
+<h3>Tes Kesehatan</h3>
+<p>
+    Akan dilaksanakan pada tanggal 2 Maret 2018
+    <i class="material-icons">done</i>
+</p>
+<h3>Tes Psikologis</h3>
+<p>
+    Akan dilaksanakan pada tanggal 3 Maret 2018
+    <i class="material-icons">done</i>
+</p>
+
+{{end}}
