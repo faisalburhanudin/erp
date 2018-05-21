@@ -16,11 +16,15 @@ func main() {
 	flag.StringVar(&listenAddr, "listen-addr", ":5000", "server listen address")
 	flag.Parse()
 
+	frontend := frontend{}
+	backend := admin{}
+
 	router := http.NewServeMux()
-	router.HandleFunc("/", index)
-	router.HandleFunc("/timeline", timeline)
-	router.HandleFunc("/register", register)
-	router.HandleFunc("/login", login)
+	router.HandleFunc("/", frontend.index)
+	router.HandleFunc("/timeline", frontend.timeline)
+	router.HandleFunc("/register", frontend.register)
+	router.HandleFunc("/login", frontend.login)
+	router.HandleFunc("/admin", backend.index)
 	router.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 
 	server := &http.Server{
