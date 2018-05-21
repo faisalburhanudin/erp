@@ -8,7 +8,7 @@ import (
 
 type admin struct{}
 
-func (b *admin) getTemplate(templateName string) *template.Template {
+func (a *admin) getTemplate(templateName string) *template.Template {
 	t, err := template.ParseFiles(
 		"templates/admin/base.html",
 		templateName,
@@ -20,7 +20,12 @@ func (b *admin) getTemplate(templateName string) *template.Template {
 	return t
 }
 
-func (b *admin) index(w http.ResponseWriter, r *http.Request) {
-	t := b.getTemplate("templates/admin/home.html")
+func (a *admin) index(w http.ResponseWriter, r *http.Request) {
+	t := a.getTemplate("templates/admin/home.html")
+	t.Execute(w, nil)
+}
+
+func (a *admin) employeeNew(w http.ResponseWriter, r *http.Request) {
+	t := a.getTemplate("templates/admin/employee_new.html")
 	t.Execute(w, nil)
 }

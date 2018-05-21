@@ -24,7 +24,10 @@ func main() {
 	router.HandleFunc("/timeline", frontend.timeline)
 	router.HandleFunc("/register", frontend.register)
 	router.HandleFunc("/login", frontend.login)
+
 	router.HandleFunc("/admin", backend.index)
+	router.HandleFunc("/admin/employee/new", backend.employeeNew)
+
 	router.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 
 	server := &http.Server{
