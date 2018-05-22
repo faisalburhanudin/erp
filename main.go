@@ -19,7 +19,7 @@ func main() {
 	flag.StringVar(&listenAddr, "listen-addr", ":5000", "server listen address")
 	flag.Parse()
 
-	db := sqlx.MustConnect("mysql", "root:secret@tcp(localhost:3306)/erp")
+	db := sqlx.MustConnect("mysql", "root:root@tcp(127.0.0.1:3306)/erp")
 
 	userMgr := UserMgr{
 		db: db,
@@ -40,6 +40,7 @@ func main() {
 	router.HandleFunc("/login", frontend.login)
 
 	router.HandleFunc("/admin", admin.index)
+	router.HandleFunc("/admin/login", admin.login)
 	router.HandleFunc("/admin/employee/new", admin.employeeNew)
 	router.HandleFunc("/admin/employee/list", admin.employeeList)
 

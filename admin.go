@@ -11,6 +11,11 @@ type Admin struct {
 	userMgr UserMgr
 }
 
+// EmployeeListData for template
+type EmployeeListData struct {
+	Users []User
+}
+
 func (a *Admin) getTemplate(templateName string) *template.Template {
 	t, err := template.ParseFiles(
 		"templates/admin/base.html",
@@ -45,15 +50,9 @@ func (a *Admin) employeeNew(w http.ResponseWriter, r *http.Request) {
 
 		http.Redirect(w, r, "/admin/employee/list", 301)
 	} else {
-
+		t := a.getTemplate("templates/admin/employee/new.html")
+		t.Execute(w, nil)
 	}
-	t := a.getTemplate("templates/admin/employee/new.html")
-	t.Execute(w, nil)
-}
-
-// EmployeeListData for template
-type EmployeeListData struct {
-	Users []User
 }
 
 func (a *Admin) employeeList(w http.ResponseWriter, r *http.Request) {
@@ -65,4 +64,12 @@ func (a *Admin) employeeList(w http.ResponseWriter, r *http.Request) {
 
 	t := a.getTemplate("templates/admin/employee/list.html")
 	t.Execute(w, data)
+}
+
+func (a *Admin) login(w http.ResponseWriter, r *http.Request) {
+	t, err := template.ParseFiles("templates/admin/login.html")
+	if err != nil {
+		log.Fatal(err)
+	}
+	t.Execute(w, nil)
 }
