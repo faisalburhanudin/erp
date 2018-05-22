@@ -6,9 +6,12 @@ import (
 	"net/http"
 )
 
-type frontend struct{}
+// Frontend handler
+type Frontend struct {
+	userMgr UserMgr
+}
 
-func (f *frontend) getTemplate(templateName string) *template.Template {
+func (f *Frontend) getTemplate(templateName string) *template.Template {
 	t, err := template.ParseFiles(
 		"templates/front/base.html",
 		templateName,
@@ -20,22 +23,22 @@ func (f *frontend) getTemplate(templateName string) *template.Template {
 	return t
 }
 
-func (f *frontend) index(w http.ResponseWriter, r *http.Request) {
+func (f *Frontend) index(w http.ResponseWriter, r *http.Request) {
 	t := f.getTemplate("templates/front/home.html")
 	t.Execute(w, nil)
 }
 
-func (f *frontend) timeline(w http.ResponseWriter, r *http.Request) {
+func (f *Frontend) timeline(w http.ResponseWriter, r *http.Request) {
 	t := f.getTemplate("templates/front/timeline.html")
 	t.Execute(w, nil)
 }
 
-func (f *frontend) register(w http.ResponseWriter, r *http.Request) {
+func (f *Frontend) register(w http.ResponseWriter, r *http.Request) {
 	t := f.getTemplate("templates/front/register.html")
 	t.Execute(w, nil)
 }
 
-func (f *frontend) login(w http.ResponseWriter, r *http.Request) {
+func (f *Frontend) login(w http.ResponseWriter, r *http.Request) {
 	t := f.getTemplate("templates/front/login.html")
 	t.Execute(w, nil)
 }

@@ -1,0 +1,49 @@
+{{define "content"}}
+<div class="col-lg-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Create new user
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form role="form" method="POST" action="/admin/employee/new">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input name="username" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input name="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="password" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Role</label>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="role" id="optionsRadios1" value="employee" checked>Employee
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="role" id="optionsRadios2" value="admin">Admin
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                        <button type="reset" class="btn btn-default">Reset</button>
+                    </form>
+                </div>
+                <!-- /.col-lg-6 (nested) -->
+            </div>
+            <!-- /.row (nested) -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>
+<!-- /.col-lg-12 -->
+{{end}}

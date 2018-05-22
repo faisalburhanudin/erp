@@ -8,6 +8,9 @@ import (
 	"os"
 	"os/signal"
 	"time"
+
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/jmoiron/sqlx"
 )
 
 func main() {
@@ -16,8 +19,19 @@ func main() {
 	flag.StringVar(&listenAddr, "listen-addr", ":5000", "server listen address")
 	flag.Parse()
 
-	frontend := frontend{}
-	backend := admin{}
+	db := sqlx.MustConnect("mysql", "root:secret@tcp(localhost:3306)/erp")
+
+	userMgr := UserMgr{
+		db: db,
+	}
+
+	frontend := Frontend{
+		userMgr: userMgr,
+	}
+
+	admin := Admin{
+		userMgr: userMgr,
+	}
 
 	router := http.NewServeMux()
 	router.HandleFunc("/", frontend.index)
@@ -25,8 +39,9 @@ func main() {
 	router.HandleFunc("/register", frontend.register)
 	router.HandleFunc("/login", frontend.login)
 
-	router.HandleFunc("/admin", backend.index)
-	router.HandleFunc("/admin/employee/new", backend.employeeNew)
+	router.HandleFunc("/admin", admin.index)
+	router.HandleFunc("/admin/employee/new", admin.employeeNew)
+	router.HandleFunc("/admin/employee/list", admin.employeeList)
 
 	router.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 
